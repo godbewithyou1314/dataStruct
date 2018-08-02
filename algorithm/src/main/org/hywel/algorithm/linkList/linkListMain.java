@@ -1,4 +1,4 @@
-import linkList.singleLinkList;
+package org.hywel.algorithm.linkList;
 
 public class linkListMain {
     public static void main(String[] args){

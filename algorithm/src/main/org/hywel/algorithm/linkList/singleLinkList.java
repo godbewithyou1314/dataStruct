@@ -1,4 +1,4 @@
-package linkList;
+package org.hywel.algorithm.linkList;
 
 /**
  * 单链表java实现
