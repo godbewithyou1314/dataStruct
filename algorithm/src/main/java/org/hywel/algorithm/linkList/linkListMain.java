@@ -13,6 +13,7 @@ public class linkListMain {
         System.out.println("测试删除元素（下标从0开始计算）：");
         singlelist.delete(6);
         singlelist.printList();
+
 //        System.out.println(a.toString());
     }
 }

@@ -1,6 +1,10 @@
 package org.hywel.algorithm.linkList;
 
 /**
+ * 单链表
+ * 链表的随机访问不如数组的O(1)，链表需要从head遍历，get(i)为O(N)
+ * 链表胜在insert和delete操作，均为O(1)
+ *
  * 单链表java实现
  * 定义头指针head：指向第一个节点
  *
