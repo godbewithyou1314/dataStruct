@@ -1,18 +1,18 @@
 package org.hywel.algorithm.linkList;
 
 public class SingleLinkedList {
-    public Node head;
-    public Node tail;
+    public ListNode head;
+    public ListNode tail;
     private int length;
 
     /**
-     * Node
+     * ListNode
      */
-    public class Node {
+    public class ListNode {
         public int val;
-        public Node next;
+        public ListNode next;
 
-        private Node(int val) {
+        private ListNode(int val) {
             this.val = val;
             this.next = null;
         }
@@ -32,13 +32,13 @@ public class SingleLinkedList {
     }
 
     /**
-     * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+     * Get the value of the index-th ListNode in the linked list. If the index is invalid, return -1.
      */
     public int get(int index) {
         if (index >= length || index < 0) {
             return -1;
         }
-        Node cur = head;
+        ListNode cur = head;
         for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
@@ -46,38 +46,38 @@ public class SingleLinkedList {
     }
 
     /**
-     * Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+     * Add a ListNode of value val before the first element of the linked list. After the insertion, the new ListNode will be the first ListNode of the linked list.
      */
     public void addAtHead(int val) {
-        Node node = new Node(val);
+        ListNode ListNode = new ListNode(val);
         if (length == 0) {
-            head = node;
-            tail = node;
+            head = ListNode;
+            tail = ListNode;
         }else{
-            node.next = head;
-            this.head = node;
+            ListNode.next = head;
+            this.head = ListNode;
         }
         this.length++;
     }
 
     /**
-     * Append a node of value val to the last element of the linked list.
+     * Append a ListNode of value val to the last element of the linked list.
      */
     public void addAtTail(int val) {
-        Node node = new Node(val);
+        ListNode ListNode = new ListNode(val);
         if (length == 0) {
-            this.head = node;
-            this.tail = node;
+            this.head = ListNode;
+            this.tail = ListNode;
         } else {
-            tail.next = node;
-            this.tail = node;
+            tail.next = ListNode;
+            this.tail = ListNode;
         }
         this.length++;
 
     }
 
     /**
-     * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+     * Add a ListNode of value val before the index-th ListNode in the linked list. If index equals to the length of linked list, the ListNode will be appended to the end of linked list. If index is greater than the length, the ListNode will not be inserted.
      */
     public void addAtIndex(int index, int val) {
         if (index > this.length || index < 0) {
@@ -88,20 +88,20 @@ public class SingleLinkedList {
         } else if (index == 0) {
             addAtHead(val);
         } else {
-            Node node = new Node(val);
-            Node cur = head;
+            ListNode ListNode = new ListNode(val);
+            ListNode cur = head;
             for (int i = 0; i < index - 1; i++) {
                 cur = cur.next;
             }
-            node.next = cur.next;
-            cur.next = node;
+            ListNode.next = cur.next;
+            cur.next = ListNode;
             this.length++;
         }
 
     }
 
     /**
-     * Delete the index-th node in the linked list, if the index is valid.
+     * Delete the index-th ListNode in the linked list, if the index is valid.
      */
     public void deleteAtIndex(int index) {
         if (index >= length || index < 0) {
@@ -115,7 +115,7 @@ public class SingleLinkedList {
             head = head.next;
             length--;
         } else {
-            Node cur = head;
+            ListNode cur = head;
             for (int i = 0; i < index - 1; i++) {
                 cur = cur.next;
             }
@@ -140,7 +140,7 @@ public class SingleLinkedList {
         if (isEmpty()) {
             System.out.println("The Linked List is Empty");
         } else {
-            Node cur = head;
+            ListNode cur = head;
             for (int i = 0; i < length; i++) {
                 System.out.print(cur.val + " ");
                 if (null != cur.next) {
@@ -153,8 +153,11 @@ public class SingleLinkedList {
 
 
     /**
+     * Source: Linked List Cycle
+     *
      * 返回链表的环节点，如果没有环则返回null
      *
+     * 解决办法：快慢指针
      * 实现步骤：
      * 1.1) Using a slow pointer that move forward 1 step each time
      *
@@ -167,9 +170,9 @@ public class SingleLinkedList {
      * @param head
      * @return
      */
-    public boolean detectCycle(Node head) {
-        Node fast = head;
-        Node slow = head;
+    public boolean detectCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
         while(fast != null && fast.next != null){
             slow = slow.next;
             fast = fast.next.next;
@@ -181,21 +184,86 @@ public class SingleLinkedList {
     }
 
     /**
-     * 如果链表存在环，返回环节点。否则返回NULL
+     * Source: Linked List Cycle 2
      *
-     * 实现步骤：
+     * target: 如果链表存在环，返回环节点。否则返回NULL
+     *
+     * 算法证明，设
+     * L1： head到环节点的距离
+     * L2: 环节点到相遇的距离
+     * 相遇时Slow的路程： L1+L2
+     * 相遇时fast的路程： L1+L2+nc(c为一圈环的长度，n为fast相遇时所转的圈数)
+     * fast速度和距离均为slow两倍，则有：
+     *      2(L1+L2) = L1+L2+nc
+     *      L1+L2 = nc
+     *      L1 = nc - L2
+     *      L1 = (n-1)c + (c-L2)
+     *  ==> head到环节点的距离等于n-1圈环后再跑到环节点的距离。所以总会在环节点相遇
+     *
+     * STEP：
      * STEP 1：判断链表是否存在环
+     * STEP 2：在相遇点，一个指针从head开始往前，slow指针从相遇点开始继续往前，他们相遇的点就是环节点
+     *
+     * */
+     public ListNode detectCycleListNode(ListNode head){
+         if(null==head||null==head.next){
+             return null;
+         }
+         ListNode fast = head;
+         ListNode slow = head;
+         ListNode cur = head;
+         while(null != fast && null != fast.next){
+             fast = fast.next.next;
+             slow = slow.next;
+             if(fast == slow){
+                 while(slow != cur){
+                     cur = cur.next;
+                     slow = slow.next;
+                 }
+                 return cur;
+             }
+         }
+         return null;
+     }
+
+
+    /**
+     * 返回如下两个交叉链表的交叉点，如果没有则返回null
+     * （要求：1. 时间复杂度为O(n),空间复杂度为O(1)）
+     *
+     *
+     * For example, the following two linked lists:
+     *
+     * A:          a1 → a2
+     *                    ↘
+     *                      c1 → c2 → c3
+     *                    ↗
+     * B:     b1 → b2 → b3
+     * begin to intersect at node c1.
+     *
+     * 实现方法：
+     * 1. 利用两次迭代，经历相同循环后，同时指向交叉点
+     * （a1+a2+ c1+c2+c3 +b1+b2+b3 =
+     *  b1+b2+b3+ c1+c2+c3+ a1+a2）所以这么多次迭代次数后在交叉点相遇
+     *
+     *  2. 拿到两个链表的Length，去掉较长的部分，再开始迭代。例如把上边例子中B链表去掉较长部分
+     *  A:       a1 → a2
+     *                   ↘
+     *                     c1 → c2 → c3
+     *                    ↗
+     *  B:       b2 → b3
      */
+    //方法一实现
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode a = headA;
+        ListNode b = headB;
+        while(a != b){
+            a = a == null?headB:a.next;
+            b = b == null?headA:b.next;
+        }
+        return a;
+    }
 
 }
 
-/**
- * Your MyLinkedList object will be instantiated and called as such:
- * MyLinkedList obj = new MyLinkedList();
- * int param_1 = obj.get(index);
- * obj.addAtHead(val);
- * obj.addAtTail(val);
- * obj.addAtIndex(index,val);
- * obj.deleteAtIndex(index);
- */
 
