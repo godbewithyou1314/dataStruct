@@ -9,7 +9,7 @@ public class SingleLinkedList {
      * ListNode
      */
     public class ListNode {
-        public int val;
+        private int val;
         public ListNode next;
 
         private ListNode(int val) {
@@ -167,8 +167,8 @@ public class SingleLinkedList {
      *
      * 1.4) Otherwise, if (fast == NULL || fast->next == NULL), there has no cycle.
      *
-     * @param head
-     * @return
+     * @param head 链表头节点
+     * @return 是否存在环
      */
     public boolean detectCycle(ListNode head) {
         ListNode fast = head;
@@ -262,6 +262,47 @@ public class SingleLinkedList {
             b = b == null?headA:b.next;
         }
         return a;
+    }
+
+    /**
+     * 移除尾部第N个节点
+     *
+     * Example:
+     *
+     * Given linked list: 1->2->3->4->5, and n = 2.
+     *
+     * After removing the second node from the end, the linked list becomes 1->2->3->5.
+     *
+     * 要求：仅遍历链表一次，并且传入的n总是可用的
+     *
+     * @param head 链表头节点
+     * @param n 删除从尾部第n的节点
+     * @return 删除后的链表头节点
+     */
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        //先定义一个快指针到位置
+        ListNode fast = head;
+        for(int i=1;i<n;i++){
+            fast = fast.next;
+        }
+        //判断如果删除的是头节点，直接头节点删除然后返回
+        if(fast.next==null){
+            head = head.next;
+            return head;
+        }else{
+            //fast再前进一步，确保slow指针是在删除节点前一个
+            fast = fast.next;
+        }
+        //fast和slow节点一起往前走，当fast到达链表末尾，slow就是删除节点的前一节点
+        ListNode slow = head;
+        while(fast.next!=null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
+
+        return head;
     }
 
 }
