@@ -1,4 +1,4 @@
-package org.hywel.algorithm.binarysearch;
+package pers.hywel.algorithm.binarysearch;
 
 public class GuessNumber {
     private int goalNum ;

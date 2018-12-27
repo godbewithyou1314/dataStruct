@@ -1,19 +1,24 @@
-package org.hywel.algorithm.linkList;
+package pers.hywel.algorithm.linklist;
 
 public class linkListMain {
     public static void main(String[] args){
+        SinglyLinkedList l1 = new SinglyLinkedList();
+        SinglyLinkedList l2 = new SinglyLinkedList();
+        l1.addAtHead(2);
+        l1.addAtHead(1);
+        l1.addAtHead(0);
+        l1.rotateRight(l1.head,4);
 
-        singleLinkList singlelist = new singleLinkList(0,1,2,3,4);
-        singlelist.printList();
+//        l2.addAtHead(4);
+//        l2.addAtHead(3);
+//        l2.addAtHead(1);
+//        SinglyLinkedList.ListNode mergedList = l1.mergeTwoLists(l1.head,l2.head);
+//
+//        SinglyLinkedList.ListNode cur  = mergedList;
+//        while (null != cur){
+//            System.out.println(cur.getVal());
+//            cur = cur.next;
+//        }
 
-        System.out.println("测试添加元素（下标从0开始计算）：");
-        singlelist.insert(5,6);
-        singlelist.printList();
-
-        System.out.println("测试删除元素（下标从0开始计算）：");
-        singlelist.delete(6);
-        singlelist.printList();
-
-//        System.out.println(a.toString());
     }
 }

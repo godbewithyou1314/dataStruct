@@ -5,11 +5,20 @@ package pers.hywel.algorithm.dynamicprogramming;
 */
 public class MaxSubSequenceSum {
     public static void main(String[] args) {
-        int[] a = new int[]{2,4,0,-1,3};
+        int[] a = new int[]{2,4,0,-5,3};
         System.out.println(maxSubSequence(a));
     }
 
-    //动态规划，状态方程 MaxSum[i] = Max{ MaxSum[i-1] + A[i], A[i]};MaxSum[i]表示已a[i]结尾的最大和
+    /**
+     * 最大序列和
+     * 求一个给定数组中最大连续和
+     *
+     * Solve:
+     * 动态规划，状态转移方程
+     * MaxSum[i] = Max{ MaxSum[i-1] + A[i], A[i]};MaxSum[i]表示包含A[i]并以A[i]结尾的最大和
+     * @param array
+     * @return
+     */
     public static int maxSubSequence(int[] array) {
 
         int length = array.length;

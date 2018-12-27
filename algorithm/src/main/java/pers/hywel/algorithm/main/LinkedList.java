@@ -1,10 +1,10 @@
-package org.hywel.algorithm.main;
+package pers.hywel.algorithm.main;
 
-import org.hywel.algorithm.linkList.SingleLinkedList;
+import pers.hywel.algorithm.linklist.SinglyLinkedList;
 
 public class LinkedList {
     public static void main(String[] args) {
-        SingleLinkedList obj = new SingleLinkedList();
+        SinglyLinkedList obj = new SinglyLinkedList();
 
     }
 }
