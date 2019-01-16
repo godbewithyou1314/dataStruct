@@ -1,10 +1,8 @@
 package pers.hywel.algorithm.hashtable;
 
-import java.util.ArrayList;
+import java.util.*;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * 设计合适的key
@@ -12,9 +10,21 @@ import java.util.Set;
  * 很多时候我们都需要自己设计一个合适的key去分组，而不是仅仅用HashCode函数的方式。
  * 一个合适的hash函数和key键设计能够带来很大的性能提升和数据均衡
  *
- * 解决问题：
+ * key总结，常用方法：
+ * 1.对乱序的string或者array，可以考虑排序后作为key（如下实例1）
+ * 2.使用距离第一个值的offset作为key，选择一个统一的坐标原点，例如（x1,x2,x3）==>(0，x1-0,x2-0,x3-0)
+ * 3.在树中，可以使用treeNode作为key，不过在大多数场景中，可以使用子树为key（如下实例3，寻找相同子树）
+ * 4.矩阵中，可以使用横坐标和纵坐标构建唯一key（如实例2判断行列时）
+ * 5.数独中，可以使用横坐标和纵坐标来将数独划分块。（如实例2，通过除法和取余，将坐标映射到块坐标）
+ *      0 ,1，2
+ *      3，4，5
+ *      6，7，8
+ * 6.矩阵中，有时可以使用对角线做key。例如横纵坐标的：i+j ,i-j
+ *
+ * 以下实例代码解决问题：
  * 1. 将字符串数组里相同字符的字符串归组（groupAnagrams）
  * 2. 验证数独是否可用（isValidSudoku）
+ * 3. 寻找相同子树（findDuplicateSubtrees）
  */
 public class DesignTheKey {
 
@@ -141,5 +151,61 @@ public class DesignTheKey {
             }
         }
         return true;
+    }
+
+    /**
+     * 查找相同的子树
+     * Two trees are duplicate if they have the same structure with same node values.
+
+     Example 1:
+
+                1
+             /   \
+            2    3
+          /    /  \
+        4    2    4
+      /
+     4
+     The following are two duplicate subtrees:
+
+         2
+       /
+     4
+     and
+     4
+
+     Therefore, you need to return above trees' root in the form of a list.
+     */
+    public class TreeNode {
+      int val;
+      TreeNode left;
+      TreeNode right;
+      TreeNode(int x) { val = x; }
+    }
+    public List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+        List<TreeNode> duplicatedSubTrees = new LinkedList<TreeNode>();
+        Map<String,Integer> treeNodeStrMap = new HashMap<>();
+//        Set<String> treeNodeStrSet = new HashSet<>();
+        recursionTree(root,treeNodeStrMap,duplicatedSubTrees);
+        return duplicatedSubTrees;
+    }
+
+    private String recursionTree(TreeNode root,Map<String,Integer> treeNodeStrMap,List<TreeNode> duplicatedSubTrees){
+        if(null == root){
+            return "#";
+        }else{
+            String subTreeStr = root.val+"->"
+                    +recursionTree(root.left,treeNodeStrMap,duplicatedSubTrees)+"|"
+                    +recursionTree(root.right,treeNodeStrMap,duplicatedSubTrees);
+            if(treeNodeStrMap.containsKey(subTreeStr)){
+                int count = treeNodeStrMap.get(subTreeStr);
+                if(count==1) {
+                    duplicatedSubTrees.add(root);
+                    treeNodeStrMap.put(subTreeStr,count+1);
+                }
+            }
+            else {treeNodeStrMap.put(subTreeStr,1);}
+            return subTreeStr;
+        }
     }
 }
