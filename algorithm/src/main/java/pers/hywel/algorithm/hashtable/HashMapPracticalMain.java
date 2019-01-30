@@ -1,5 +1,7 @@
 package pers.hywel.algorithm.hashtable;
 
+import pers.hywel.algorithm.linklist.SinglyLinkedList;
+
 import java.util.*;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,7 +17,9 @@ import java.util.HashSet;
  * 4. 求一个字符串中第一个不重复的字符下标 (firstUniqChar , firstUniqChar2)
  * 5. 取两个数组中的相同元素集 (intersect)
  * 6. 是否存在一组重复元素，该组元素的下标差小于给定的k值 (containsNearbyDuplicateWithHashMap, containsNearbyDuplicate)
- *
+ * 7. 求一个字符串最长不重复字串 (lengthOfLongestSubstring)
+ * 8. 给四个int数组，求四数组中各出一个数相加为0的组合有多少种（fourSumCount）
+ * 9. 返回一个int数组出现频率最高的k个元素（topKFrequent）
  */
 public class HashMapPracticalMain {
     public static void main(String[] args) {
@@ -274,5 +278,122 @@ public class HashMapPracticalMain {
             if(!set.add(nums[i])) {return true;}
         }
         return false;
+    }
+
+
+    /**
+     * 给定一个字符串，求最长不重复字串
+     *
+     * 如：
+     * Input: "abcabcbb"
+     * Output: 3
+     * Explanation: The answer is "abc", with the length of 3.
+     *
+     * 思路：通过双指针加Map解决
+     *
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring(String s) {
+        if (null == s || s.isEmpty()) { return 0; }
+        Map<Character, Integer> charIndexMap = new HashMap<>();
+        int maxNoRepeatSubStrLen = 0;
+        for (int head=0,tail=0; tail < s.length(); tail++) {
+            if(charIndexMap.containsKey(s.charAt(tail))){
+                //头指针不能回头
+                head = Math.max(head,charIndexMap.get(s.charAt(tail))+1);
+            }
+            maxNoRepeatSubStrLen = Math.max(maxNoRepeatSubStrLen,tail-head+1);
+            charIndexMap.put(s.charAt(tail), tail);
+        }
+        return maxNoRepeatSubStrLen;
+    }
+
+    /**
+     * 求四个数组中各出一个数，相加结果为0的组合有多少种
+     *
+     * Example:
+     *
+     * Input:
+     * A = [ 1, 2]
+     * B = [-2,-1]
+     * C = [-1, 2]
+     * D = [ 0, 2]
+     *
+     * Output:
+     * 2
+     *
+     * Explanation:
+     * The two tuples are:
+     * 1. (0, 0, 0, 1) -> A[0] + B[0] + C[0] + D[1] = 1 + (-2) + (-1) + 2 = 0
+     * 2. (1, 1, 0, 0) -> A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
+     *
+     * @param A，B，C，D 都是长度为N的int数组
+     * @return 组合种类
+     */
+    public int fourSumCount(int[] A, int[] B, int[] C, int[] D) {
+        if(null==A||null==B||null==C||null==D||A.length==0){return 0;}
+        Map<Integer,Integer> cdSumMap = new HashMap<>();
+        for(int c:C){
+            for(int d:D){
+                int cdSum=c+d;
+                cdSumMap.put(cdSum,cdSumMap.getOrDefault(cdSum,0)+1);
+            }
+        }
+
+        int res = 0;
+        for(int a:A){
+            for(int b:B){
+                res += cdSumMap.getOrDefault(-(a+b),0);
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 返回一个int数组，出现频率最高的k个元素
+     *
+     * 示例：
+     * Example 1:
+     * Input: nums = [1,1,1,2,2,3], k = 2
+     * Output: [1,2]
+     *
+     * 解法:
+     * 1. 用hashmap对应元素和频率
+     * 2. 按照频率把元素丢到对应的桶
+     * 3. 从后往前遍历桶，取k个元素
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        if (null==nums || nums.length==0) {return null;}
+        // num-frequency 对应到map里
+        Map<Integer,Integer> numFreqMap = new HashMap<>();
+        for (int num: nums) {
+            numFreqMap.put(num,numFreqMap.getOrDefault(num,0)+1);
+        }
+        // 桶排序，每个桶为出现频率
+        List<Integer>[] freBucket = new List[nums.length+1];
+        for (int num: numFreqMap.keySet()) {
+            int freq = numFreqMap.get(num);
+            if (freBucket[freq] == null){
+                freBucket[freq] = new ArrayList<>();
+            }
+            freBucket[freq].add(num);
+        }
+
+        // 从后往前，则是频率从高到低，取k个元素
+        List<Integer> result = new ArrayList<>();
+        for (int i=freBucket.length-1; i>=0; i--) {
+            if (freBucket[i] != null && result.size()<k) {
+                result.addAll(freBucket[i]);
+                if (result.size() >= k) {
+                    return result;
+                }
+            }
+        }
+        return result;
     }
 }

@@ -2,8 +2,18 @@ package pers.hywel.algorithm.hashtable;
 
 import java.util.*;
 import java.util.HashSet;
+import java.util.stream.Stream;
 
 /**
+ * HashSet 相关练习题
+ *
+ * 以下代码实例：
+ * 1. 判断数组中是否存在重复元素（containsDuplicate）
+ * 2. 给定一个数组，判断数组中是否存在个数为奇数的单身元素（singleNumber）
+ * 3. 给定两个整数数组，求两数组中相同元素（intersection）
+ * 4. 给定两个字符串，求两个字符串中相同元素个数（leetcode题目：Jewels and Stones）（numJewelsInStones）
+ * 5. 求happy数，每位上的数的平方和最终等于0（leetcode题目：Happy Number）（isHappy）
+ *
  * @author hywel
  */
 public class HashSetPracticalMain {
@@ -72,6 +82,27 @@ public class HashSetPracticalMain {
             i++;
         }
         return result;
+    }
+
+    /**
+     * 给定两个字符串，求两个字符串中相同字符出现次数
+     * （leetcode题目：Jewels and Stones）
+     */
+    public int numJewelsInStones(String J, String S) {
+        if(null==J||null==S){return 0;}
+        char[] charJ = J.toCharArray();
+        Set<Character> setJ = new HashSet<>();
+        for(int i=0;i<charJ.length;i++){
+            setJ.add(charJ[i]);
+        }
+        char[] charS = S.toCharArray();
+        int jewelNums=0;
+        for(int i=0;i<charS.length;i++){
+            if(setJ.contains(charS[i])){
+                jewelNums++;
+            }
+        }
+        return jewelNums;
     }
 
     /**
