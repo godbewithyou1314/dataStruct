@@ -32,8 +32,9 @@ import java.util.Arrays;
  *  (row, col) ---> (col, array.length-1-row)
  * 剥洋葱，(0, 0)-> (1,1) ,每次一行的旋转
  *
- * @author zhangwei111
- * Created on 2019-11-28 20:18
+ * @author RobertZhang
+ *
+
  */
 public class RotateImage {
     public static void rotate(int[][] matrix) {

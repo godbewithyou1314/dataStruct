@@ -29,8 +29,9 @@ package pers.hywel.algorithm.String;
  * 1. 正常字母：依次比对
  * 2. 出现*：
  *
- * @author zhangwei111
- * Created on 2019-12-17 15:52
+ * @author RobertZhang
+ *
+
  */
 public class RegularExpressionMatching {
 

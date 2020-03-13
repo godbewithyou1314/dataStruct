@@ -20,8 +20,9 @@ package pers.hywel.algorithm.String;
  * Input: ["h","e","l","l","o"]
  * Output: ["o","l","l","e","h"]
  *
- * @author zhangwei111
- * Created on 2019-12-04 22:16
+ * @author RobertZhang
+ *
+
  */
 public class ReverseString {
     public static void reverseString(char[] s) {

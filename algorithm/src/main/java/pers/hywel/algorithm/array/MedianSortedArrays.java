@@ -28,7 +28,8 @@ package pers.hywel.algorithm.array;
  * The median is (2 + 3)/2 = 2.5
  *
  * @author RobertZhang
- * Created on 2019-12-12 14:25
+ *
+
  */
 public class MedianSortedArrays {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {

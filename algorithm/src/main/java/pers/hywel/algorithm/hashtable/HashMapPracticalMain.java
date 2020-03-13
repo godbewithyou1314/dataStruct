@@ -1,7 +1,5 @@
 package pers.hywel.algorithm.hashtable;
 
-import pers.hywel.algorithm.linklist.SinglyLinkedList;
-
 import java.util.*;
 import java.util.HashMap;
 import java.util.HashSet;

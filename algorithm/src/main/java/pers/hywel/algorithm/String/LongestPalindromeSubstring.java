@@ -17,7 +17,8 @@ package pers.hywel.algorithm.String;
  * Note: "aba" is also a valid answer.
  *
  * @author RobertZhang
- * Created on 2019-12-11 10:20
+ *
+
  */
 public class LongestPalindromeSubstring {
 

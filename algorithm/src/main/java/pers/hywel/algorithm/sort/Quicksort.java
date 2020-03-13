@@ -3,13 +3,10 @@
  */
 package pers.hywel.algorithm.sort;
 
-import sun.jvm.hotspot.oops.Array;
-
 /**
  * Description:
  *
- * @author zhangwei111
- * Created on 2019-11-25 17:19
+ * @author RobertZhang
  */
 public class Quicksort {
     public static void main(String[] args) {

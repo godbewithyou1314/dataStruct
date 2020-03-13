@@ -7,8 +7,9 @@ package pers.hywel.algorithm.String;
  * Description:
  * String to Integer (atoi),越界就输入int得最大值或者最小值
  *
- * @author zhangwei111
- * Created on 2019-12-16 10:54
+ * @author RobertZhang
+ *
+
  */
 public class StringToInteger {
     public static int myAtoi(String str) {

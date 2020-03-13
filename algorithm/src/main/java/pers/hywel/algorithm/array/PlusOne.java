@@ -16,8 +16,7 @@ import java.util.Arrays;
  * Output: [1,2,4]
  * Explanation: The array represents the integer 123.
  *
- * @author zhangwei111
- * Created on 2019-11-27 16:11
+ * @author RobertZhang
  */
 public class PlusOne {
     private int[] plusOne(int[] digits) {

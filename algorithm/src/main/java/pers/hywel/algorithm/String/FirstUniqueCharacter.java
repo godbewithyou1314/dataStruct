@@ -19,8 +19,9 @@ import java.util.HashMap;
  * s = "loveleetcode",
  * return 2.
  *
- * @author zhangwei111
- * Created on 2019-12-04 23:12
+ * @author RobertZhang
+ *
+
  */
 public class FirstUniqueCharacter {
     /**

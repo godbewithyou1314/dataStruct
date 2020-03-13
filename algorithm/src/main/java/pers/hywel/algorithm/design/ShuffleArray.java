@@ -27,8 +27,9 @@ import java.util.Random;
  * // Returns the random shuffling of array [1,2,3].
  * solution.shuffle();
  *
- * @author zhangwei111
- * Created on 2019-12-10 19:38
+ * @author RobertZhang
+ *
+
  */
 public class ShuffleArray {
     int[] current;

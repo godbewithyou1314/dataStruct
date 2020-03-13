@@ -26,7 +26,8 @@ package pers.hywel.algorithm.array;
  *              Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
  *
  * @author 张益达
- * Created on 2019-12-10 14:22
+ *
+
  */
 public class BuyStock {
     // 只要后一个数大就买，只要后一个小就卖

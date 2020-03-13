@@ -21,8 +21,9 @@ package pers.hywel.algorithm.array;
  * Input: [1,8,6,2,5,4,8,3,7]
  * Output: 49
  *
- * @author zhangwei111
- * Created on 2019-12-26 16:46
+ * @author RobertZhang
+ *
+
  */
 public class MostWater {
 

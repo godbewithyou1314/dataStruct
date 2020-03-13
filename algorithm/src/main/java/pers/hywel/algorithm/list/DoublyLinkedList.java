@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.linklist;
+package pers.hywel.algorithm.list;
 
 import java.util.HashMap;
 import java.util.Map;

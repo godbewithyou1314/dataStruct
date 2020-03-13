@@ -20,8 +20,9 @@ package pers.hywel.algorithm.String;
  * Input: "race a car"
  * Output: false
  *
- * @author zhangwei111
- * Created on 2019-12-06 20:09
+ * @author RobertZhang
+ *
+
  */
 public class ValidPalindrome {
     public static boolean isPalindrome(String s) {

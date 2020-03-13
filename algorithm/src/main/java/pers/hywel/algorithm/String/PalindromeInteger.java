@@ -10,8 +10,9 @@ package pers.hywel.algorithm.String;
  * Solution：
  * 翻转一半进行比对
  *
- * @author zhangwei111
- * Created on 2019-12-16 14:33
+ * @author RobertZhang
+ *
+
  */
 public class PalindromeInteger {
     public boolean isPalindrome(int x) {

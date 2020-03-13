@@ -27,8 +27,9 @@ import java.util.ArrayList;
  * <p>
  * All given inputs are in lowercase letters a-z.
  *
- * @author zhangwei111
- * Created on 2019-12-30 11:01
+ * @author RobertZhang
+ *
+
  */
 public class LongestCommonPrefix {
     /**

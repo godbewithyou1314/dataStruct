@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.linklist;
+package pers.hywel.algorithm.list;
 
 public class linkListMain {
     public static void main(String[] args){

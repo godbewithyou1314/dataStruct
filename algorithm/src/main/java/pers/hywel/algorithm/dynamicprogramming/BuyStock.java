@@ -27,7 +27,8 @@ package pers.hywel.algorithm.dynamicprogramming;
  *  profit(n) = max{profit(n-1), prices[n]-min}
  *
  * @author 张益达
- * Created on 2019-12-10 14:20
+ *
+
  */
 public class BuyStock {
     public static int maxProfit(int[] prices) {

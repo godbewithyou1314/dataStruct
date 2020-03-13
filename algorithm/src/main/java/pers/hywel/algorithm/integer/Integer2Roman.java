@@ -50,8 +50,8 @@ package pers.hywel.algorithm.integer;
  * Output: "LVIII"
  * Explanation: L = 50, V = 5, III = 3.
  *
- * @author zhangwei111
- * Created on 2019-12-27 14:57
+ * @author RobertZhang
+ *
  */
 public class Integer2Roman {
 

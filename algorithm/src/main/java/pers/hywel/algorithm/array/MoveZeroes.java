@@ -10,8 +10,7 @@ import java.util.Arrays;
  *  Move Zeroes
  *  把0都移动到数组末尾（维持非0元素顺序）
  *
- * @author zhangwei111
- * Created on 2019-11-28 10:34
+ * @author RobertZhang
  */
 public class MoveZeroes {
 

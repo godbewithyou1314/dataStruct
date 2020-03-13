@@ -24,8 +24,9 @@ package pers.hywel.algorithm.dynamicprogramming;
  *  s(n) = s(n-1) +  s(n-2)
  *  第n楼方法，从n-1走一步 和 从n-2楼走两步 两种方式
  *
- * @author zhangwei111
- * Created on 2019-12-09 22:35
+ * @author RobertZhang
+ *
+
  */
 public class ClimbingStairs {
     public static int climbStairs(int n) {

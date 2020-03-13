@@ -21,8 +21,9 @@ import java.util.Map;
  * Input: s = "rat", t = "car"
  * Output: false
  *
- * @author zhangwei111
- * Created on 2019-12-06 19:30
+ * @author RobertZhang
+ *
+
  */
 public class ValidAnagram {
     public static boolean isAnagram(String s, String t) {

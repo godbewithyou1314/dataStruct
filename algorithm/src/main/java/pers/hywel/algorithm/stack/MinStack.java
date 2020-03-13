@@ -17,8 +17,9 @@ import java.util.List;
  * top() -- Get the top element.
  * getMin() -- Retrieve the minimum element in the stack.
  *
- * @author zhangwei111
- * Created on 2019-12-10 19:40
+ * @author RobertZhang
+ *
+
  */
 public class MinStack {
     private List<Integer> stack;

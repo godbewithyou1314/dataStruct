@@ -1,6 +1,6 @@
 package pers.hywel.algorithm.main;
 
-import pers.hywel.algorithm.linklist.SinglyLinkedList;
+import pers.hywel.algorithm.list.SinglyLinkedList;
 
 public class LinkedList {
     public static void main(String[] args) {

@@ -32,8 +32,9 @@ import java.util.Set;
  * }
  * Output: true
  *
- * @author zhangwei111
- * Created on 2019-11-28 17:33
+ * @author RobertZhang
+ *
+
  */
 public class ValidSudoku {
     public static boolean isValidSudoku(char[][] board) {

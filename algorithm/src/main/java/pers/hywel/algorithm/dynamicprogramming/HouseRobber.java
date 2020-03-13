@@ -25,7 +25,7 @@ package pers.hywel.algorithm.dynamicprogramming;
  * profit[n] = max{profit[n-1], profit[n-2]+nums[n]}
  *
  * @author 张益达
- * Created on 2019-12-10 15:39
+ *
  */
 public class HouseRobber {
     public static int rob(int[] nums) {

@@ -18,8 +18,7 @@ package pers.hywel.algorithm.array;
  * rotate 2 steps to the right: [6,7,1,2,3,4,5]
  * rotate 3 steps to the right: [5,6,7,1,2,3,4]
  *
- * @author zhangwei111
- * Created on 2019-11-27 14:48
+ * @author RobertZhang
  */
 public class RotateArray {
     /**

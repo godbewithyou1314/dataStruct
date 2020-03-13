@@ -14,8 +14,9 @@ package pers.hywel.algorithm.String;
  * Input: 123
  * Output: 321
  *
- * @author zhangwei111
- * Created on 2019-12-04 22:23
+ * @author RobertZhang
+ *
+
  */
 public class ReverseInteger {
     public static int reverse(int x) {
