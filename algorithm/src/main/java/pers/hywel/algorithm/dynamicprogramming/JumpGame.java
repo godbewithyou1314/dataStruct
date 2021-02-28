@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
-package pers.hywel.algorithm.medium;
+package pers.hywel.algorithm.dynamicprogramming;
 
 /**
  * Description:

@@ -1,8 +1,9 @@
 /*
  * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
  */
-package pers.hywel.algorithm.dynamicprogramming;
+package pers.hywel.algorithm.backtracking;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +32,35 @@ import java.util.stream.Collectors;
  * Created on 2020-05-20
  */
 public class Permutations {
-    public static List<List<Integer>> permute(int[] nums) {
+
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        backTracking(res, new LinkedList<>(), nums, 0);
+        return res;
+    }
+
+    private void backTracking(List<List<Integer>> res, List<Integer> tempRes, int[] nums, int start) {
+        if (start == nums.length) res.add(new ArrayList<>(tempRes));
+        else {
+            for (int i = start; i < nums.length; i++) {
+                swap(nums, start, i);
+                tempRes.add(nums[start]);
+
+                backTracking(res, tempRes, nums, start + 1);
+
+                swap(nums, i, start);
+                tempRes.remove(tempRes.size() - 1);
+            }
+        }
+    }
+
+    private void swap(int[] nums, int a, int b) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
+    }
+
+    public static List<List<Integer>> permuteBrute(int[] nums) {
         List<List<Integer>> res = new LinkedList<>();
         if (nums == null || nums.length < 1) return res;
         List<Integer> firstList = new LinkedList<>();
@@ -54,8 +83,9 @@ public class Permutations {
     }
 
     public static void main(String[] args) {
+        Permutations permutations = new Permutations();
         int[] array = new int[]{1, 2, 3};
-        List<List<Integer>> res = permute(array);
+        List<List<Integer>> res = permutations.permute(array);
         for (List<Integer> list : res) {
             for (Integer i : list) {
                 System.out.print(i + ",");
