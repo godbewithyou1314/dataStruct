@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
- */
 package pers.hywel.algorithm.backtracking;
 
 import java.util.ArrayList;
@@ -9,8 +6,7 @@ import java.util.List;
 
 /**
  * Description:
- *   Combination Sum
- * Medium
+ *   Combination Sum [Medium]
  *
  * Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique
  * combinations in candidates where the candidate numbers sums to target.
@@ -23,7 +19,7 @@ import java.util.List;
  * The solution set must not contain duplicate combinations.
  * Example 1:
  *
- * Input: candidates = [2,3,6,1,2,3,5,5,6,7,8,9,0,1,1,7], target = 6,
+ * Input: candidates = [2,3,6,1,2,3,5,5,6,7,8,9,0,1,1,7], target = 7,
  * A solution set is:
  * [
  *   [7],

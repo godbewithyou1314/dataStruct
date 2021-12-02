@@ -1,6 +1,4 @@
-/*
- * Copyright (C) 2019 Baidu, Inc. All Rights Reserved.
- */
+
 package pers.hywel.algorithm.sort;
 
 import java.util.Arrays;

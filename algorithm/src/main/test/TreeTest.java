@@ -5,9 +5,6 @@ import pers.hywel.algorithm.tree.TreeUtils;
 
 import java.util.ArrayList;
 
-/*
- * Copyright (C) 2020 Robert, Inc. All Rights Reserved.
- */
 public class TreeTest {
 
     @Test

@@ -1,6 +1,4 @@
-/*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
- */
+
 package pers.hywel.algorithm.list;
 
 /**
@@ -159,7 +157,6 @@ public class ReverseNodesInKGroup {
         if (k == 0) {
             return newHead;
         }
-        String[] a = new String[]{"1", "2"};
         ListNode next = head.next;
         head.next = newHead;
         return reverseByRec(next, head, k - 1);

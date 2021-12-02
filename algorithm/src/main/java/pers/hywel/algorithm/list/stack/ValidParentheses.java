@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
- */
 package pers.hywel.algorithm.list.stack;
 
 import java.util.Stack;

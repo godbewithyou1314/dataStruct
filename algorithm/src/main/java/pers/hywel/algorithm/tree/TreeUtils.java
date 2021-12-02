@@ -1,6 +1,4 @@
-/*
- * Copyright (C) 2020 Baidu, Inc. All Rights Reserved.
- */
+
 package pers.hywel.algorithm.tree;
 
 import java.util.ArrayList;

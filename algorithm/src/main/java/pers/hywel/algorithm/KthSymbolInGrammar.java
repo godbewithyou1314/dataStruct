@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2021 Baidu, Inc. All Rights Reserved.
- */
 package pers.hywel.algorithm;
 
 /**
@@ -38,6 +35,9 @@ package pers.hywel.algorithm;
  * N will be an integer in the range [1, 30].
  * K will be an integer in the range [1, 2^(N-1)].
  *
+ * row(n) = row(n-1) + func(row(n-1)后半段)
+ * row(n, k) = k < row(n-1).size() ? row(n - 1, k) : func(row(n-1)后半段, k - row(n-1).size() / 2)
+ *
  * @author zhangwei
  * Created on 2021/1/7 8:28 下午
  */
@@ -58,32 +58,5 @@ public class KthSymbolInGrammar {
             return 1 - kthGrammar(n - 1, (k + 1) / 2);
         else
             return kthGrammar(n - 1, (k + 1) / 2);
-    }
-
-    public static int kthGrammarOld(int N, int K) {
-        int n = 1;
-        while ( 1 << (n - 1) < K) {
-            n++;
-        }
-        boolean[] result = new boolean[1 << (n - 1)];
-        for (int i = 0; i < n; i++) {
-            genString(result, i);
-        }
-        return result[K - 1] ? 1 : 0;
-    }
-
-    private static void genString(boolean[] result, int n) {
-        if (n == 0) {
-            result[0] = false;
-            return;
-        } else if (n == 1) {
-            result[0] = false;
-            result[1] = true;
-            return;
-        }
-        for (int i = (1 << (n - 2)); i < (1 << (n - 1)); i++) {
-            result[2 * i] = result[i];
-            result[2 * i + 1] = !result[i];
-        }
     }
 }

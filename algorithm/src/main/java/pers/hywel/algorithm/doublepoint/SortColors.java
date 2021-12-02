@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2021 Baidu, Inc. All Rights Reserved.
- */
 package pers.hywel.algorithm.doublepoint;
 
 /**
@@ -30,6 +27,7 @@ package pers.hywel.algorithm.doublepoint;
  */
 public class SortColors {
     // 双指针：把0放到最前端，把2放到最后端。分别使用min来标记0的末尾位置，max标记2的起始位置，用作交换
+    // 双指针： 一个指向2前一个，一个指向0后一个，遇到2就和2指针交换，遇到0就和0指针交换。1则不动
     public void sortColors(int[] nums) {
         int min = 0;
         int max = nums.length - 1;
