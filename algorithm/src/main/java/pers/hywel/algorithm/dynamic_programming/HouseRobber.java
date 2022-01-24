@@ -42,7 +42,7 @@ public class HouseRobber {
     }
 
     public static void main(String[] args) {
-        int[] test = new int[]{1,2,3,4};
+        int[] test = new int[]{3,1,3,100};
         System.out.println(rob(test));
     }
 }

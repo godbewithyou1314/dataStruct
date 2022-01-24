@@ -1,5 +1,5 @@
 
-package pers.hywel.algorithm.list.linkedlist;
+package pers.hywel.algorithm.list;
 
 import pers.hywel.algorithm.list.common.ListNode;
 
@@ -19,7 +19,7 @@ import pers.hywel.algorithm.list.common.ListNode;
  * @author zhangwei111
  * Created on 2020-04-03 14:18
  */
-public class ReverseLinkedList {
+public class ReverseLinkedListBetweenRange {
 
     // Object level variables since we need the changes
     // to persist across recursive calls and Java is pass by value.
@@ -143,7 +143,7 @@ public class ReverseLinkedList {
 
 
     public static void main(String[] args) {
-        ReverseLinkedList testClass = new ReverseLinkedList();
+        ReverseLinkedListBetweenRange testClass = new ReverseLinkedListBetweenRange();
 
         ListNode head = new ListNode(1);
         ListNode two = new ListNode(2);

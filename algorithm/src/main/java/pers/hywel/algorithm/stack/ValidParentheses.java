@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.list.stack;
+package pers.hywel.algorithm.stack;
 
 import java.util.Stack;
 

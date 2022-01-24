@@ -1,6 +1,9 @@
 
 package pers.hywel.algorithm.list;
 
+import pers.hywel.algorithm.common.PrintUtils;
+import pers.hywel.algorithm.list.common.ListNode;
+
 /**
  * Description:
  * 25. Reverse Nodes in k-Group (每k个节点内翻转)
@@ -22,23 +25,13 @@ package pers.hywel.algorithm.list;
  * Only constant extra memory is allowed.
  * You may not alter the values in the list's nodes, only nodes itself may be changed.
  *
- * @author RobertZhangwei
+ * @author RobertZhang
  */
-public class ReverseNodesInKGroup {
-    /**
-     * 定义节点结构
-     */
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
+public class ReverseLinkedListInKGroup {
 
     /**
      * 非递归实现
+     *
      * @param head
      * @param k
      * @return
@@ -46,11 +39,14 @@ public class ReverseNodesInKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
         int length = 0;
         // get the list length
-        for (ListNode i = head; i != null; length++, i = i.next);
+        for (ListNode i = head; i != null; length++, i = i.next) ;
 
-        ListNode dmy = new ListNode(0);
-        dmy.next = head;
-        for(ListNode prev = dmy, tail = head; length >= k; length -= k) {
+        ListNode fakeHead = new ListNode(0);
+        fakeHead.next = head;
+        for (ListNode prev = fakeHead, tail = head; length >= k; length -= k) {
+            // prev         tail        next
+            // fake --> 2 --> 1 --> 3 --> 4
+            // 每次把tail后一个元素插入到prev后边
             for (int i = 1; i < k; i++) {
                 ListNode next = tail.next.next;
                 tail.next.next = prev.next;
@@ -61,16 +57,17 @@ public class ReverseNodesInKGroup {
             prev = tail;
             tail = tail.next;
         }
-        return dmy.next;
+        return fakeHead.next;
     }
 
     /**
      * 递归实现（递归空间就不为O(1)了）
+     *
      * @param head
      * @param k
      * @return
      */
-    public ListNode reverseKGroup02(ListNode head, int k) {
+    public ListNode reverseKGroupRecursion(ListNode head, int k) {
         ListNode curr = head;
         int count = 0;
         while (curr != null && count != k) { // find the k+1 node
@@ -78,7 +75,7 @@ public class ReverseNodesInKGroup {
             count++;
         }
         if (count == k) { // if k+1 node is found
-            curr = reverseKGroup(curr, k); // reverse list with k+1 node as head
+            curr = reverseKGroupRecursion(curr, k); // reverse list with k+1 node as head
             // head - head-pointer to direct part,
             // curr - head-pointer to reversed part;
             while (count-- > 0) { // reverse current k-group:
@@ -93,7 +90,8 @@ public class ReverseNodesInKGroup {
     }
 
     /**
-     * 按k个节点翻转
+     * 按k个节点翻转————自己实现
+     *
      * @param head
      * @param k
      * @return
@@ -123,31 +121,9 @@ public class ReverseNodesInKGroup {
         return result;
     }
 
-
-
-    public static void main(String[] args) {
-        Long startTime = System.currentTimeMillis();
-
-        ListNode a = new ListNode(1);
-        a.next = new ListNode(2);
-        a.next.next = new ListNode(3);
-        a.next.next.next = new ListNode(4);
-
-        ReverseNodesInKGroup testClass = new ReverseNodesInKGroup();
-        ListNode result = testClass.reverseKGroup(a, 2);
-        while (result.next != null) {
-            System.out.print(result.val + "->");
-            result = result.next;
-        }
-        System.out.println(result.val);
-
-        Long endTime = System.currentTimeMillis();
-        System.out.println("运行耗时：" + (endTime - startTime) + "ms");
-
-    }
-
     /**
      * 链表翻转--递归翻转
+     *
      * @param head
      * @param newHead
      * @param k
@@ -162,17 +138,33 @@ public class ReverseNodesInKGroup {
         return reverseByRec(next, head, k - 1);
     }
 
-    /**
-     * 链表翻转--迭代
-     */
-    private ListNode reverseByNoRec(ListNode head) {
-        ListNode result = null;
-        while (head != null) {
-            ListNode cur = head;
-            head = head.next;
-            cur.next = result;
-            result = cur;
-        }
-        return result;
+
+    public static void main(String[] args) {
+        Long startTime = System.currentTimeMillis();
+
+        ListNode list1 = genList();
+        ListNode list2 = genList();
+
+        ReverseLinkedListInKGroup testClass = new ReverseLinkedListInKGroup();
+        ListNode result1 = testClass.reverseKGroup(list1, 4);
+        ListNode result2 = testClass.reverseKGroupRecursion(list2, 2);
+        System.out.print("非递归方式翻转：");
+        PrintUtils.printList(result1);
+
+        System.out.print("递归方式翻转：");
+        PrintUtils.printList(result2);
+        Long endTime = System.currentTimeMillis();
+
+        System.out.println("运行耗时：" + (endTime - startTime) + "ms");
+    }
+
+    private static ListNode genList() {
+        ListNode a = new ListNode(1);
+        a.next = new ListNode(2);
+        a.next.next = new ListNode(3);
+        a.next.next.next = new ListNode(4);
+        a.next.next.next.next = new ListNode(5);
+        a.next.next.next.next.next = new ListNode(6);
+        return a;
     }
 }

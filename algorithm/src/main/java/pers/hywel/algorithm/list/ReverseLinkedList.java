@@ -2,28 +2,24 @@
 package pers.hywel.algorithm.list;
 
 
+import pers.hywel.algorithm.common.PrintUtils;
+import pers.hywel.algorithm.list.common.ListNode;
+
 /**
  * Description:
+ *  普通链表翻转
+ *  from
+ *  1 --> 2-- > 3 --> 4
+ *  to
+ *  4--> 3 --> 2 --> 1
  *
- * @author zhangwei111
+ * @author zRobertZhang
  * Created on 2021/3/6 9:21 上午
  */
-public class ListReverse0306 {
-     public static class ListNode {
-        public int val;
-        public ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
+public class ReverseLinkedList {
 
     // ------>[newHead] [curNode] [head]<---------
-    // curHead++
-    // [head]++
-    // curHead.next = newHead
-    // newHead++
+    // 类似于两条链表，右边链表退1，左边链表进1，
     public static ListNode reverseList(ListNode head) {
         ListNode newHead = null;
         while (head != null) {
@@ -44,10 +40,6 @@ public class ListReverse0306 {
         node1.next = node2;
 
         ListNode newHead = reverseList(head);
-
-        while (newHead != null) {
-            System.out.print(newHead.val + "---->");
-            newHead = newHead.next;
-        }
+        PrintUtils.printList(newHead);
     }
 }

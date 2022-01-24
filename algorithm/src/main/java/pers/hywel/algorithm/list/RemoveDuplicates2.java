@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.list.linkedlist;
+package pers.hywel.algorithm.list;
 
 import pers.hywel.algorithm.list.common.ListNode;
 

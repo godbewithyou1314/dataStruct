@@ -1,9 +1,10 @@
 
-package pers.hywel.algorithm.String;
+package pers.hywel.algorithm.arithmetic;
 
 /**
  * Description:
  * 43. Multiply Strings【Medium】
+ * 实现字符串相乘
  *
  * Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2,
  * also represented as a string.

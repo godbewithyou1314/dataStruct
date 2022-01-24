@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.integer;
+package pers.hywel.algorithm.arithmetic;
 
 /**
  * Description:
