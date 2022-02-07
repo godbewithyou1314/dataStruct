@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.integer;
+package pers.hywel.algorithm.bit_operate;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,7 +6,8 @@ import java.util.Set;
 /**
  * 260. Single Number III
  *
- * Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice. Find the two elements that appear only once. You can return the answer in any order.
+ * Given an integer array nums, in which exactly two elements appear only once and all the other elements appear exactly twice.
+ * Find the two elements that appear only once. You can return the answer in any order.
  *
  * Follow up: Your algorithm should run in linear runtime complexity. Could you implement it using only constant space complexity?
  *

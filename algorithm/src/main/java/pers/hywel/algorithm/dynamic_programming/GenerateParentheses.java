@@ -87,5 +87,4 @@ public class GenerateParentheses {
         Long endTime = System.currentTimeMillis();
         System.out.println("运行耗时：" + (endTime - startTime) + "ms");
     }
-
 }
