@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.hashtable;
+package pers.hywel.algorithm.map_set;
 
 import java.util.*;
 import java.util.HashMap;

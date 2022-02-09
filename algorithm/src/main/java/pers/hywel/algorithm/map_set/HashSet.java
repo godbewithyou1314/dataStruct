@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.hashtable;
+package pers.hywel.algorithm.map_set;
 
 /**
  * 自己实现的HashSet结构

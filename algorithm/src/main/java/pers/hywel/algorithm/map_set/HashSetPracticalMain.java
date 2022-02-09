@@ -1,8 +1,7 @@
-package pers.hywel.algorithm.hashtable;
+package pers.hywel.algorithm.map_set;
 
 import java.util.*;
 import java.util.HashSet;
-import java.util.stream.Stream;
 
 /**
  * HashSet 相关练习题
