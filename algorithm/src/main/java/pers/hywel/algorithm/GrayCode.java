@@ -87,7 +87,7 @@ public class GrayCode {
 
     public static void main(String[] args) {
         GrayCode testObj = new GrayCode();
-        List<Integer> result = testObj.grayCode(3);
+        List<Integer> result = testObj.grayCode(2);
         for (int i : result) {
             System.out.print(i + " ");
         }
