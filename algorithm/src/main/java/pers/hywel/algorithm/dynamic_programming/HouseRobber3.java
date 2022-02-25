@@ -83,7 +83,7 @@ public class HouseRobber3 {
 
     public static void main(String[] args) {
         HouseRobber3 testObj = new HouseRobber3();
-        TreeNode root = TreeUtils.genTreeFromArray(new Integer[]{3,2,3,null,3,null,1});
+        TreeNode root = TreeUtils.buildTreeFromArray(new Integer[]{3,2,3,null,3,null,1});
         int max = testObj.robGreedy(root);
         System.out.println(max);
     }

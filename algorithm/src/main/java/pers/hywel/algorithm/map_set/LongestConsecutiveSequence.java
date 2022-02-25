@@ -1,4 +1,4 @@
-package pers.hywel.algorithm.maporset;
+package pers.hywel.algorithm.map_set;
 
 import java.util.HashSet;
 import java.util.Set;

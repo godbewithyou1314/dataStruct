@@ -52,7 +52,7 @@ public class BinaryTreeLevelOrderTraversal2 {
 
     public static void main(String[] args) {
         Integer[] treeArray = new Integer[]{3,9,20,null,null,15,7};
-        TreeNode root = TreeUtils.genTreeFromArray(treeArray);
+        TreeNode root = TreeUtils.buildTreeFromArray(treeArray);
         TreeUtils.prettyPrint(root);
     }
 

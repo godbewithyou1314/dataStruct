@@ -11,7 +11,7 @@ public class TreeUtils {
     /**
      * 根据array生成树
      */
-    public static TreeNode genTreeFromArray(Integer[] array) {
+    public static TreeNode buildTreeFromArray(Integer[] array) {
         return genTreeRecursion(null, array, 0);
     }
 

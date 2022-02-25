@@ -82,7 +82,7 @@ public class PrintBinaryTree {
 
     public static void main(String[] args) {
         PrintBinaryTree testObj = new PrintBinaryTree();
-        TreeNode root = TreeUtils.genTreeFromArray(new Integer[]{10, 5, 15, null, null, 6, 20});
+        TreeNode root = TreeUtils.buildTreeFromArray(new Integer[]{10, 5, 15, null, null, 6, 20});
         for (List<String> temp : testObj.printTree(root)) {
             System.out.println(temp);
         }

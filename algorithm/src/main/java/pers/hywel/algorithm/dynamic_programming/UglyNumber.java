@@ -1,33 +1,29 @@
 package pers.hywel.algorithm.dynamic_programming;
 
-import pers.hywel.algorithm.common.PrintUtils;
-
-import java.util.Date;
-
 /**
  * 263. Ugly Number【Easy】
- *
+ * <p>
  * An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
- *
+ * <p>
  * Given an integer n, return true if n is an ugly number.
- *
+ * <p>
  * Example 1:
  * Input: n = 6
  * Output: true
  * Explanation: 6 = 2 × 3
- *
+ * <p>
  * Example 2:
  * Input: n = 1
  * Output: true
  * Explanation: 1 has no prime factors, therefore all of its prime factors are limited to 2, 3, and 5.
- *
+ * <p>
  * Example 3:
  * Input: n = 14
  * Output: false
  * Explanation: 14 is not ugly since it includes the prime factor 7.
- *
+ * <p>
  * Constraints:
- *
+ * <p>
  * -231 <= n <= 231 - 1
  *
  * @Date 2022-01-04 判断是否丑数
