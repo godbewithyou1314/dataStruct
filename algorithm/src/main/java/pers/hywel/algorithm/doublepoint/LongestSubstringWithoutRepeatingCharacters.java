@@ -32,6 +32,14 @@ import java.util.Map;
  */
 public class LongestSubstringWithoutRepeatingCharacters {
 
+    /**
+     * 滑动窗口
+     * head = curChar repeated ? cur repeat char index + 1 : head
+     * tail++
+     *
+     * @param s
+     * @return
+     */
     public int lengthOfLongestSubstring(String s) {
         if (null == s || s.isEmpty()) { return 0; }
         Map<Character, Integer> charIndexMap = new HashMap<>();
