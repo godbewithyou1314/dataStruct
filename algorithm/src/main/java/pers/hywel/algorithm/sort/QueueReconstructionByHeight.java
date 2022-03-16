@@ -1,5 +1,5 @@
 
-package pers.hywel.algorithm;
+package pers.hywel.algorithm.sort;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -46,6 +46,12 @@ import java.util.List;
  * Created on 2021/4/8 7:40 下午
  */
 public class QueueReconstructionByHeight {
+    /**
+     * 1. 按照高度排序
+     * 2. 然后按照第二个位置，插入到相应的位置
+     * @param people
+     * @return
+     */
     public int[][] reconstructQueue(int[][] people) {
         //pick up the tallest guy first
         //when insert the next tall guy, just need to insert him into kth position

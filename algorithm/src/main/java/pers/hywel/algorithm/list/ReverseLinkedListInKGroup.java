@@ -38,26 +38,33 @@ public class ReverseLinkedListInKGroup {
      */
     public ListNode reverseKGroup(ListNode head, int k) {
         int length = 0;
-        // get the list length
+        // 1. 获取list总长度
         for (ListNode i = head; i != null; length++, i = i.next) ;
-
         ListNode fakeHead = new ListNode(0);
         fakeHead.next = head;
+        // 2. 遍历 length / k 次.（length < k，length内不反转）
         for (ListNode prev = fakeHead, tail = head; length >= k; length -= k) {
+            // 3. 开始第一个k内的反转
+            // prev    tail       next
+            // fake --> 1 --> 2 --> 3 --> 4
+            //             ||
             // prev         tail        next
             // fake --> 2 --> 1 --> 3 --> 4
-            // 每次把tail后一个元素插入到prev后边
+            //             ||
+            // prev               tail
+            // fake --> 3 --> 2 --> 1 --> 4
+            // tail会一直往后移，prev指向当前k组的头结点。每次把tail后一个元素插入到prev后边
             for (int i = 1; i < k; i++) {
                 ListNode next = tail.next.next;
                 tail.next.next = prev.next;
                 prev.next = tail.next;
                 tail.next = next;
             }
-
+            // 4. 前一个k组和下一个k组连接
             prev = tail;
             tail = tail.next;
         }
-        return fakeHead.next;
+        return fakeHead.next; // fake.next...
     }
 
     /**
@@ -141,12 +148,13 @@ public class ReverseLinkedListInKGroup {
 
     public static void main(String[] args) {
         Long startTime = System.currentTimeMillis();
-
+        // 构造list
         ListNode list1 = genList();
         ListNode list2 = genList();
 
+        // 调用
         ReverseLinkedListInKGroup testClass = new ReverseLinkedListInKGroup();
-        ListNode result1 = testClass.reverseKGroup(list1, 4);
+        ListNode result1 = testClass.reverseKGroup(list1, 3);
         ListNode result2 = testClass.reverseKGroupRecursion(list2, 2);
         System.out.print("非递归方式翻转：");
         PrintUtils.printList(result1);
@@ -164,7 +172,7 @@ public class ReverseLinkedListInKGroup {
         a.next.next = new ListNode(3);
         a.next.next.next = new ListNode(4);
         a.next.next.next.next = new ListNode(5);
-        a.next.next.next.next.next = new ListNode(6);
+//        a.next.next.next.next.next = new ListNode(6);
         return a;
     }
 }

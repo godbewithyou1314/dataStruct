@@ -22,7 +22,7 @@ public class TreeUtils {
             }
             root = new TreeNode(array[index]);
             root.left = genTreeRecursion(root.left, array, 2 * (index + 1) - 1);
-            root.right = genTreeRecursion(root.left, array, 2 * (index + 1));
+            root.right = genTreeRecursion(root.right, array, 2 * (index + 1));
         }
         return root;
     }

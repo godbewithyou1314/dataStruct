@@ -26,7 +26,6 @@ package pers.hywel.algorithm.dynamic_programming;
  *
  * @author 张益达
  *
-
  */
 public class BuyStock {
     public static int maxProfit(int[] prices) {
