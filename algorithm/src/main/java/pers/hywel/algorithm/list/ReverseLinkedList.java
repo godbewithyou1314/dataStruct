@@ -31,15 +31,30 @@ public class ReverseLinkedList {
         return newHead;
     }
 
+    // 递归实现
+    public static ListNode reverseListByRecursion(ListNode head) {
+        return reverseListByRecursionHelper(null, head);
+    }
+    public static ListNode reverseListByRecursionHelper(ListNode newHead, ListNode curNode) {
+        if (curNode == null) {
+            return newHead;
+        }
+        ListNode nextNode = curNode.next;
+        curNode.next = newHead;
+        return reverseListByRecursionHelper(curNode, nextNode);
+    }
+
     // 测试
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         ListNode node1 = new ListNode(2);
         ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
         head.next = node1;
         node1.next = node2;
+        node2.next = node3;
 
-        ListNode newHead = reverseList(head);
+        ListNode newHead = reverseListByRecursion(head);
         PrintUtils.printList(newHead);
     }
 }
